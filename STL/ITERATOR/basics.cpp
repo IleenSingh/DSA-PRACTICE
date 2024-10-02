@@ -21,6 +21,4 @@ using namespace std ;
  //forward iterator
    forward_list<int> list;
    
-
-
  }

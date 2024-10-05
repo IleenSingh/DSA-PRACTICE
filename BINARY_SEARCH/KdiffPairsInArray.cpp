@@ -21,7 +21,45 @@ Input: nums = [1,2,3,4,5], k = 1
 Output: 4
 Explanation: There are four 1-diff pairs in the array, (1, 2), (2, 3), (3, 4) and (4, 5).*/
 
+
 #include <iostream>
 #include<vector>
+#include<set>
+#include<algorithm>
+
 using namespace std;
+
+int kDiffPairs(vector<int>nums , int k){
+    sort(nums.begin() ,nums.end());
+    set<pair<int,int>> ans;
+    int i=0;//initialising pointer
+    int j =1;
+    //to give unique number of pairs we use set
+    int n=nums.size();
+
+    while(j < n){
+
+        int diff = nums[j] - nums[i] ;
+        if(diff==k){
+            ans.insert({nums[i] , nums[j]});
+            i++ , j++;
+        }
+        else if(diff > k){
+            i++;
+        }
+        else{
+            j++;
+        }
+        if(i==j) j++;
+    }
+    return ans.size();
+}
+
+int main(){
+    vector<int>nums ={1,2,3,4,5};
+    int k =1;
+    int ans = kDiffPairs(nums , k);
+    cout<<"The total number of Unique pairs in this array -> "<<ans<<endl;
+    }
+
 

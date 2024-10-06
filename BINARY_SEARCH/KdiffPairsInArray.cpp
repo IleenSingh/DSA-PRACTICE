@@ -21,7 +21,7 @@ Input: nums = [1,2,3,4,5], k = 1
 Output: 4
 Explanation: There are four 1-diff pairs in the array, (1, 2), (2, 3), (3, 4) and (4, 5).*/
 
-
+//two pointer method
 #include <iostream>
 #include<vector>
 #include<set>
@@ -63,3 +63,46 @@ int main(){
     }
 
 
+//binary search method
+#include <iostream>
+#include<vector>
+#include<set>
+#include<algorithm>
+
+using namespace std;
+
+int bs(vector<int>&nums , int s ,int x){
+    int e = nums.size()-1;
+    while(s<=e){
+        int mid= (s+e)>>1;
+        if(nums[mid] == x){
+            return mid;
+        }
+        else if (nums[mid]<x){
+            s=mid+1;
+        }
+       else{
+        e=mid-1;
+       }
+        
+    }
+    return -1;
+}
+
+int findPairs(vector<int>&nums , int k){
+    sort(nums.begin() , nums.end());
+    set<pair<int,int>> ans;
+    for(int i=0 ; i <nums.size() ; i++){
+        if(bs(nums , i+1 ,nums[i]+k) != -1){
+            ans.insert({nums[i] , nums[i] + k});            
+        }
+    }
+    return ans.size();
+}
+
+int main(){
+    vector<int> nums ={1,2,3,4,5};
+    int k =1;
+    int ans = findPairs(nums , k);
+    cout<<"The total number of Unique pairs in this array -> "<<ans<<endl;
+}

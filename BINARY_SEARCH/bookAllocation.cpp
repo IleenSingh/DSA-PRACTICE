@@ -25,3 +25,68 @@ Constraints:
 1 <= arr[i] <= 106                                 
 
 */
+
+#include<iostream>
+#include<numeric>
+#include<algorithm>
+using namespace std;
+
+//how to check if we got a possible solution or not
+ 
+ bool isPossible(int A[] ,int N,int M,int sol){
+    int pageSum=0;
+    int c=1;
+    //loop start krenge jisme book k pages ko plus krke compare krenge mid se
+    for(int i=0 ; i<N ; i++){
+        if(A[i] > sol){
+            return false; //12+34+67+90 =203>113 kind off aisa kch sum bada ho jese
+        }
+
+        //allot student sum se chote honge tbb
+        if(pageSum + A[i] >sol){
+            c++;
+            //ab bhar gye h mtlb ab overflow horha h sum mid se 
+            pageSum = A[i];
+
+            //student khtm books bchi h but
+            if(c > M){
+                return false;
+            }
+        }
+        else{
+            pageSum += A[i];
+        }
+    }
+    return true;
+ }
+
+
+int findPages(int A[] , int N , int M){
+    //agar student hi books se zyada hogye toh allocation ni ho paegi
+    if(M>N) return -1;
+
+    int start = 0;
+    int end =accumulate(A ,A+N ,0);
+    int ans=-1;
+    //binary search lagayenge mid nikl k minimum number of pages nikalne k liye
+    while(start<=end){
+        int mid = (start+end)>>1;
+        if(isPossible(A , N , M ,mid)){
+            ans = mid;
+            end=mid-1;
+        }
+        else{
+            //not possible wala case
+            start = mid+1;
+        }
+    }
+    return ans;
+}
+
+int main(){
+    int A[] ={12,34,67,90};
+    int N=4;
+    int M =2;
+    int ans = findPages(A ,N ,M);
+    cout<<"The sum of the maximum number of pages in a book allotted to a student should be the minimum is -> "<<ans;
+}

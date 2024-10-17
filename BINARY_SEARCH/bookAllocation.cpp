@@ -54,6 +54,7 @@ using namespace std;
             }
         }
         else{
+            //jab bhi if ki condition mtlb sol bada rhega tb books isme add hote jaenge means 12,34,67,90 k case mai 12 34 67 add hue honge phir count bada hoga 
             pageSum += A[i];
         }
     }

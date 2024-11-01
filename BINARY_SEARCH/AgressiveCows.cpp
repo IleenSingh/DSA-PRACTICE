@@ -4,6 +4,13 @@ You are given an array consisting of n integers which denote the position of a s
 The first line of input contains two space-separated integers n and k.
 The second line contains n space-separated integers denoting the position of the stalls.
 
+Input: stalls[] = [10, 1, 2, 7, 5], k = 3
+Output: 4
+Explanation: The first cow can be placed at stalls[0],
+the second cow can be placed at stalls[1] and
+the third cow can be placed at stalls[4].
+The minimum distance between cows, in this case, is 4, which also is the largest among all possible ways.
+
 Example 1:
 
 Input:
@@ -12,6 +19,7 @@ k=3
 stalls = [1 2 4 8 9]
 Output:
 3
+
 Explanation:
 The first cow can be placed at stalls[0], 
 the second cow can be placed at stalls[2] and 

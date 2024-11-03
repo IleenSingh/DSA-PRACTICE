@@ -40,3 +40,11 @@ Constraints:
 
 */
 
+#include<iostream>
+#include<vector>
+
+using namespace std;
+
+bool isPossible(vector<int>&stalls , int k int mid){
+    
+}

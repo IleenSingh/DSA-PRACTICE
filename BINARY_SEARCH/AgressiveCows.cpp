@@ -53,7 +53,7 @@ bool isPossible(vector<int>&stalls , int k , int mid){
     //jis position se cows k bich se distance shuru krenge napna
     for(int i =1; i<stalls.size() ;i++){
         //2nd index se placing start krenge
-        if(stalls[i] - fPosition == mid){
+        if(stalls[i] - fPosition >= mid){
             //agar inn dono ka subraction mid k equal hua toh ek or cow place hojaegi or count badh jaega
             count++;
             //ab jha dusri cow place hui h wha se 3re ka distance nikalenge
@@ -86,4 +86,13 @@ int agressiveCows(vector<int>&stalls , int k , int n){
         }
     }
     return ans;
+}
+
+int main(){
+    vector<int> stalls = {1,2,4,8,9};
+    int k =3;
+    int n =stalls.size();
+    int ans = agressiveCows(stalls ,k ,n);
+    cout<<"the minimum distance between any two of them is the maximum possible is "<<ans;
+
 }

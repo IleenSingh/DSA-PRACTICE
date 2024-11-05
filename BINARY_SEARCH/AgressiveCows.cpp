@@ -42,11 +42,28 @@ Constraints:
 
 #include<iostream>
 #include<vector>
-
+#include<algorithm>
 using namespace std;
 
 bool isPossible(vector<int>&stalls , int k , int mid){
-    
+    //ek count chalayenge then akhri mai k se compare krenge ki sarri cows place hui ki ni 
+    int count =1;
+    //one isliye kyuki distance measure k liye ek cow placed rhti h hmesha
+    int fPosition = stalls[0] ;    
+    //jis position se cows k bich se distance shuru krenge napna
+    for(int i =1; i<stalls.size() ;i++){
+        //2nd index se placing start krenge
+        if(stalls[i] - fPosition == mid){
+            //agar inn dono ka subraction mid k equal hua toh ek or cow place hojaegi or count badh jaega
+            count++;
+            //ab jha dusri cow place hui h wha se 3re ka distance nikalenge
+            fPosition = stalls[i];
+        }
+        if (count==k)  return true; // means hamari sazari cows place higyi hai 
+    }
+    //for loop end 
+    return false;
+
 }
 
 //main function 
@@ -56,10 +73,12 @@ int agressiveCows(vector<int>&stalls , int k , int n){
     int start =0;
     //stalls[stalls.size()-1] mtlb stalls [5] = 9 , stalls of first index =1 ->>> 9-1=8
     int end = stalls[stalls.size()-1] - stalls[0];
+    int ans=-1;
 
     while(start<=end){
         int mid =start +(end - start) /2;
         if(isPossible(stalls , k , mid)){
+            ans=mid;
             start = mid+1;
         }
         else{

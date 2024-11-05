@@ -48,3 +48,9 @@ using namespace std;
 bool isPossible(vector<int>&stalls , int k int mid){
     
 }
+
+//main function 
+int agressiveCows(vector<int>&cows , int k , int n){
+    //array ko sort krenge kyuki number line mai saare element sorted order mai rhte h 
+    
+}

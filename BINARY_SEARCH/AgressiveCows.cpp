@@ -45,12 +45,26 @@ Constraints:
 
 using namespace std;
 
-bool isPossible(vector<int>&stalls , int k int mid){
+bool isPossible(vector<int>&stalls , int k , int mid){
     
 }
 
 //main function 
-int agressiveCows(vector<int>&cows , int k , int n){
+int agressiveCows(vector<int>&stalls , int k , int n){
     //array ko sort krenge kyuki number line mai saare element sorted order mai rhte h 
-    
+    sort(stalls.begin() , stalls.end());
+    int start =0;
+    //stalls[stalls.size()-1] mtlb stalls [5] = 9 , stalls of first index =1 ->>> 9-1=8
+    int end = stalls[stalls.size()-1] - stalls[0];
+
+    while(start<=end){
+        int mid =start +(end - start) /2;
+        if(isPossible(stalls , k , mid)){
+            start = mid+1;
+        }
+        else{
+            end= mid-1;
+        }
+    }
+    return ans;
 }

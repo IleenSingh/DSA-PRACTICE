@@ -35,3 +35,25 @@ Constraints:
 1 <= part.length <= 1000
 s​​​​​​ and part consists of lowercase English letters.
 */
+
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+string removeAllOccOfASubstr(string s , string part){
+    while(s.find(part) != string::npos){
+        //string::npos essentially means "not found" or "no position" in the context of string operations.
+        //It’s a way to handle cases where a substring or character doesn't exist within a string.
+        s.erase(s.find(part) , part.length());
+    }
+    return s;
+}
+
+
+int main() {
+    string s = "daabcbaabcbc";
+    string part = "abc";
+    cout << "Result: " << removeAllOccOfASubstr(s , part) << endl;
+    return 0;
+}

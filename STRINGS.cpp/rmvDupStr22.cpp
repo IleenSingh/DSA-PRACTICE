@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+#include<string>
 using namespace std;
 
 string removeKDuplicate(string s , int k ){
@@ -24,7 +25,7 @@ string removeKDuplicate(string s , int k ){
         }
         i++ , j++ ;
     }
-    return substr(0,i);
+    return s.substr(0,i);
 }
 
 

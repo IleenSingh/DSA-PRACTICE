@@ -5,16 +5,19 @@ using namespace std;
 
 int main(){
     //creation
-//     unordered_map<int,string> m;
+    unordered_map<int,string> m;
 //     //insertion k different methodsssssss
-    
-//     m[1]= "India";
-//     m.insert(make_pair(2 , "Australia"));
-//     pair<int ,string> p;
-//     p.first =3;
-//     p.second="New Zealand";
-//     m.insert(p);
-//     cout<<m.size()<<endl;
+    //1
+    m[1]= "India";
+//2
+    m.insert(make_pair(2 , "Australia"));
+    //3
+    pair<int ,string> p;
+    p.first =3;
+    p.second="New Zealand";
+    m.insert(p);
+
+    cout<<m.size()<<endl;
 // //empty
 //     if(m.empty() == true){
 //         cout<<"Map is Empty"<< endl;
@@ -28,12 +31,12 @@ int main(){
 //     cout<<m.at(2)<<endl;
 
 //     //print krwana h saare element ko
-//     unordered_map<int , string>::iterator it = m.begin();
-//     while(it!=m.end()){
-//         // cout<<*it<<endl;
-//         cout <<  it->first << " " << it->second<<endl;
-//         it++;
-//     }
+    unordered_map<int , string>::iterator it = m.begin();
+    while(it!=m.end()){
+        // cout<<*it<<endl;
+        cout <<  it->first << " " << it->second<<endl;
+        it++;
+    }
     unordered_map<string , string> um;
     um["i"] ="ileen";
     um["l"] ="leen";
@@ -54,12 +57,12 @@ int main(){
     }
 // • count(const Key& key): Returns the number of elements with the specified key (1 or 0 since std::map does not allow
 // duplicate keys).
-   if(um.count("l"==1)){
-    cout<<"key found"<<endl;
-   }
-   else{
-    cout<<"key not found"<<endl;
-   }
+//    if(um.count("l"==1)){
+//     cout<<"key found"<<endl;
+//    }
+//    else{
+//     cout<<"key not found"<<endl;
+//    }
    
 }
 

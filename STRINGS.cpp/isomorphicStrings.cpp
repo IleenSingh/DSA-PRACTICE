@@ -75,3 +75,9 @@ bool isomorphicStrings(string s , string t){
 
     return true;
 }
+
+int main(){
+    string s ="boo";
+    string t ="tot";
+    cout<<"Isomorphic or not -> "<<isomorphicStrings(s,t)<<endl;
+}

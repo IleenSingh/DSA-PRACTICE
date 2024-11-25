@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<map>
+#include<algorithm>
 using namespace std;
  
 
@@ -24,9 +25,16 @@ using namespace std;
  }
 
  int main(){
-    vector<string>str = {"eat" ,"tea","tan","ate","nat","bat"} ;
+    vector<string>strs = {"eat" ,"tea","tan","ate","nat","bat"} ;
     vector<vector<string>>ans = groupAnagram(strs);
-    
+     for (auto group : ans) {
+        for (auto word : group) {
+            cout << word << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
     
 
  }

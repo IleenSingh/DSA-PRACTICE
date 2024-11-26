@@ -91,4 +91,43 @@ s consists of English letters (lower-case and upper-case), digits (0-9), ' ', '+
 */
 
 #include<iostream>
+#include<limits.h>
 using namespace std;
+
+int myAtoi(string s){
+    int num = 0 , i = 0 , sign =1 ;
+    //num hamara ans hoga , i se iterate krenge string pe , sign hmm positive le k chlenge
+
+    //first leading whitespaces ko remove krenge
+    while(s[i] ==' '){
+        i++;
+    }
+
+     // second handling the sign of the integer 
+     if(i<s.size() && (s[i]=='-' || s[i] == '+')){
+        //i<s.size out of bound nah jaye uske liye hai 
+        sign = s[i] == '+' ? 1 : -1; //agar + h toh 1 return krro agar nevative h toh -1 
+        i++;
+     }
+
+     //third handling special cases (out of range values)
+     while(i<s.size() && isdigit(s[i])){
+        //isdigit bss number dekhta hai
+
+        if(num > INT_MAX/10 || (num == INT_MAX/10 && s[i] > '7')){
+            //num > INT_MAX/10 agar divide krne mai bhi zyada bada h toh into krke overflow hoga hi 
+            //num  == INT_MAX/10 && s[i] > '7' agar same h number toh 10 se divide mai ek kmm hoga 10 se multiply mai 0 add hoga or main range hamari h 2147483647 rhta h toh mtlb last digit 7 sebada ni hona chaiye 
+            return sign == -1 ? INT_MIN : INT_MAX ;
+        }
+        num = num * 10 +(s[i] - '0');
+        i++;
+     }
+     return num * sign ;
+
+
+}
+
+int main(){
+    string s = "1337c0d3";
+    cout<<"after conversion -> "<< myAtoi(s) <<endl;
+}

@@ -85,7 +85,7 @@ using namespace std;
     }
 
     int main(){
-       int num = 1994;
+       int num = 230;
         cout<<"IntegerToRoman of this number -> "<<intToRoman(num);
 
     }

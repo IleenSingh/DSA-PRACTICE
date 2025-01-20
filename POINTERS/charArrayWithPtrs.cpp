@@ -8,6 +8,7 @@ int main(){
     cout<<"cptr : "<<cptr<<endl;
     cout<<"*cptr : "<<*cptr<<endl;
     cout<<"*(cptr+3) : "<<*(cptr+3)<<endl;
+    cout<<"size of cptr : "<<sizeof(cptr)<<endl;
 
 
 }

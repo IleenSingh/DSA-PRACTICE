@@ -6,4 +6,8 @@ int main(){
     char* cptr = ch;
     cout<<"Address of ch :" <<&ch<<endl;
     cout<<"cptr : "<<cptr<<endl;
+    cout<<"*cptr : "<<*cptr<<endl;
+    cout<<"*(cptr+3) : "<<*(cptr+3)<<endl;
+
+
 }

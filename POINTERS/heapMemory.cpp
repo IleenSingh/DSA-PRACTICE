@@ -8,5 +8,5 @@ int main(){
     cout<<*p<<endl;
     //deallocation
     delete p;
-    // cout<<*p;
+    cout<<*p;
 }

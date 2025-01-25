@@ -10,3 +10,7 @@ int getSum(int n){
     int Answer = getSum(n-1) + n;
     return Answer;
 }
+
+int main(){
+    cout<<getSum(10);
+}

@@ -11,3 +11,7 @@ int pow(int n){
     int Answer = 2 * recursionPart ;
     return Answer;
 }
+
+int main(){
+    cout<<pow(10);
+}

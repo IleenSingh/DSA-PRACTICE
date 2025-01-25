@@ -14,3 +14,6 @@ void printCounting(int n){
     printCounting(n-1);
 }
 
+int main(){
+    printCounting(50);
+}

@@ -6,7 +6,7 @@ int getSum(int n){
     if(n==1) return 1;
 
     //recursion relation 
-    //sum(n) = sum(n-1) + n;
+    //sum(n) = sum(n-1) + n
     int Answer = getSum(n-1) + n;
     return Answer;
 }

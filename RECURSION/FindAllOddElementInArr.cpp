@@ -15,3 +15,10 @@ void printAllOdd (int arr[] ,int n ,int index){
     printAllOdd(arr , n ,index+1);
 
 }
+
+int main(){
+    int arr[] ={1,2,3,4,5,6,7,8,9,10};
+    int n= 10;
+    int index =0 ;
+    printAllOdd(arr , n ,index);
+}

@@ -8,7 +8,7 @@ void printAllEven (int arr[] ,int n ,int index){
     }
 
     //1 case -> & operator se odd pata krrlenge 
-    if(((arr[index])&1 )== 0){
+    if(((arr[index])&1 )== 0){ //not laga denge uske samne toh bhhi even aajaega rather than o h ki ni dekhne ki jagah
         cout<<arr[index]<<" ";
     }
     //recursion part -> increment krte jaega index ko 

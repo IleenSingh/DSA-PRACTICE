@@ -26,8 +26,6 @@ int binarySearchWithRecursion(int arr[] , int s ,int e ,int target){
         //now calling function again for end to decrease it
         return binarySearchWithRecursion(arr , s ,mid -1 ,target);
      }
-
-
 }
 
 int main(){

@@ -4,7 +4,7 @@ using namespace std;
 int binarySearchWithRecursion(int arr[] , int s ,int e ,int target){
      
      //base case => jab start point end se aage chle jaaye 
-     if(s>e) return -1;
+     if(s>e) {return -1;}
 
      //finding mid
      int mid =s+(e-s)/2;
@@ -27,5 +27,15 @@ int binarySearchWithRecursion(int arr[] , int s ,int e ,int target){
         return binarySearchWithRecursion(arr , s ,mid -1 ,target);
      }
 
+
+}
+
+int main(){
+    int arr[] ={10 ,20 ,30 ,40 ,50 ,60 ,70 ,80 ,90 ,100};
+    int n =10;
+    int s = 0 ;
+    int e = n-1;
+    int target =100 ;
+    cout<<"Answer Index -> "<<binarySearchWithRecursion(arr ,s ,e ,target)<<endl;
 
 }

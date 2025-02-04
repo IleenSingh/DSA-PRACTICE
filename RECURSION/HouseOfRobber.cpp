@@ -20,3 +20,40 @@
 
 // 1 <= nums.length <= 100
 // 0 <= nums[i] <= 400
+
+#include<vector>
+#include<iostream>
+using namespace std;
+
+int money(vector<int>& nums , int n ,int i){
+    //base case -> jab array khtm hojaye yaa i greater or equal hojaye n se
+    if(i>=n) return 0;
+
+    //include case -> i th location se start hoga phir alternate saare elements ka add on hoga money
+    //ith term ko mai plus krungi (1 case solve) and baaki remaining terms ko recursion krega 
+    int includeAns = nums[i] + money(nums,n,i+2); //i+2 because ek ghar ko skip krke rob krna hai
+
+    //exclude case -> ith location ko discard krrdenge toh kch bhi add ni hoga 0 plus krege then
+    //recursion i+1 th se start krega add krna money ko
+    int excludeAns = 0 + money(nums,n,i+1);
+     
+    //ab in dono mai answer mai jo bada hoga woh final answer bnn jaega 
+    int finalAns = max(includeAns , excludeAns);
+    return finalAns;
+   }
+
+
+
+
+    int rob(vector<int>& nums) {
+        int index =0 ;
+        int answer = money(nums , nums.size() , index);
+        return answer;
+    }
+
+
+
+    int main(){
+        vector<int>nums ={2 ,7,9,3,1};
+        cout<<"The money he got after robbing the houses -> "<<rob(nums)<<endl;
+    }

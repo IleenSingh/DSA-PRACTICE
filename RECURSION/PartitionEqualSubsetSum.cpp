@@ -18,3 +18,8 @@ Constraints:
 1 <= nums.length <= 200
 1 <= nums[i] <= 100
 */
+
+#include<iostream>
+#include<vector>
+using nmaespace std;
+

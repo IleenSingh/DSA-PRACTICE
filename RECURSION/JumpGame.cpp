@@ -26,3 +26,8 @@ bool solve(vector<int>&nums , int i){
 bool canJump(vector<int>&nums){
     return solve(nums,0);
 }
+
+int main(){
+    vector<int> nums ={2,3,1,1,4};
+    cout<<"Reached or Not -> "<<canJump(nums)<<endl;
+}

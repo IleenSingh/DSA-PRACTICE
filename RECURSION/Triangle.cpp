@@ -60,3 +60,8 @@ int minimumTotal(vector<vector<int>>& triangle) {
         return answer(triangle , 0 , 0);
         //2d array , row , col
 }
+
+int main(){
+    vector<vector<int>>triangle = {{2},{3,4},{6,5,7},{4,1,8,3}};
+    cout<<minimumTotal(triangle)<<endl;
+}

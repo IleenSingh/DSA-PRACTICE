@@ -46,7 +46,7 @@ void Answer(vector<int>& prices ,int i , int& minPrice ,int& maxProfit){
    }
    int todaysProfit = prices[i] - minPrice ;
 
-   //profit :)
+   //profit 😊
    if(todaysProfit > maxProfit) {
     maxProfit = todaysProfit;
    }

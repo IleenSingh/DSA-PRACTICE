@@ -34,3 +34,42 @@ Constraints:
 s contains only lowercase English letters.
 p contains only lowercase English letters, '?' or '*'.
 */
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+bool isMatchHelper(string&s ,int si ,string&s ,int pi){
+    //Base case 1 when both string and pattern reacch the end limit
+    if(si == s.size() && pi == p.size()){
+        return true ;
+    }
+    //Base case 2 when at the end of the pattern is not star or something else return false and when reach * return true
+    if(si ==s.size() && pi == p.size() ){
+        while(pi<p.size()){
+            if(p[pi] !='*'){
+                return false;
+                pi++;
+            }
+        }
+        return true;
+    }
+    //when single char are matching 
+    if(s[si] ==p[pi] && '?' == p[pi]){
+        return isMatchHelper(s ,si ,p ,pi+1);
+    }
+
+    //handling ****************************
+    if(p[pi] == '*'){
+        //case 1 whwen we assume * are empty and null
+        bool caseA =isMatchHelper(s,si,p,pi+1);
+        //case2 here * consume one char
+        bool caseB =isMatchHelper(s,si+1 ,p,pi);
+
+        return caseA || caseB ;
+
+
+    }
+    //char doesnt match
+    return false;
+}

@@ -44,7 +44,7 @@ int solve(vector<int>&nums , int s ,int e){
     }
 
     //include -> ith index ko krenge
-    int option1 = 1 + solve(nums ,s+2 ,e);
+    int option1 = nums[s] + solve(nums ,s+2 ,e);
     //exclude -> ith +1 se chorri start
     int option2 = 0 + solve(nums ,s+1 ,e);
 
@@ -65,4 +65,9 @@ int rob(vector<int>& nums) {
         int option2 =solve(nums ,1 ,n-1);
         int answer = max(option1 ,option2);
         return answer;
+}
+
+int main(){
+    vector<int> nums ={2,3,2};
+    cout<<rob(nums);
 }

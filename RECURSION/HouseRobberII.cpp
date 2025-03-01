@@ -32,3 +32,37 @@ Constraints:
 1 <= nums.length <= 100
 0 <= nums[i] <= 1000
 */
+
+#include<iostream>
+#include<vector>
+using namespace std;
+
+int solve(vector<int>&nums , int s ,int e){
+    //Base Case -> when start reaches after the end
+    if(s>e){
+        return 0;
+    }
+
+    //include -> ith index ko krenge
+    int option1 = 1 + solve(nums ,s+2 ,e);
+    //exclude -> ith +1 se chorri start
+    int option2 = 0 + solve(nums ,s+1 ,e);
+
+    int answer = max(option1 ,option2);
+    return answer;
+}
+
+int rob(vector<int>& nums) {
+        int n =nums.size();
+
+        //handling single element case
+        if(n==1){
+            return nums[0];
+        }
+        //phle first house ko include krenge last ko nhi 
+        int option1 = solve(nums ,0 ,n-2);
+        //ab last house ko include krenge first ko nhi
+        int option2 =solve(nums ,1 ,n-1);
+        int answer = max(option1 ,option2);
+        return answer;
+}

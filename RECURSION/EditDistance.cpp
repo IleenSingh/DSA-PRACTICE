@@ -47,13 +47,39 @@ int operations(string &w1 ,string &w2 ,int i ,int j){
     // w2 ki length return krwayenge kyuki utne elements ko add hi krna padega mtlb utne operations honge
     if(j>=w2.length()) return w1.length() -i;
 
-    int ans =0
+    int ans =0 ;
+    //do case bnega ek jisme ek baar match hojaega or ek mai nhi hoga toh 3 operation
+     
+    //match case 
+    if(w1[i]==w2[j]){
+        ans = 0 + operations(w1 ,w2 ,i+1 ,j+1);
+    }
+    //no match case 
+    else{
+        //insert
+        int insertOp = 1 + operations(w1 ,w2 ,i ,j+1);
+        //removal
+        int removeOp = 1 + operations(w1 , w2 ,i+1 ,j);
+        //remove krrdenge toh next element se match krwaenge 
+        //replace 
+        int replaceOp = 1 + operations(w1 ,w2 ,i+1 ,j+1);
 
+        ans = min(insertOp ,min(removeOp ,replaceOp));
+    }
+    return ans;
+
+}
+
+int minDistance(string word1, string word2) {
+    int i = 0;
+    int j = 0;
+    int ans = operations(word1, word2, i, j);
+    return ans;
 }
 
 int main(){
     string w1 = "prakash";
-    string w2 ="kas";
-    int ans =operations(w1,w2,0,0);
+    string w2 ="ksa";
+    int ans =minDistance(w1,w2);
     cout<<ans<<endl;
 }
